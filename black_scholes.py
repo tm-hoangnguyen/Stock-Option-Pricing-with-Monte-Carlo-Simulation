@@ -13,7 +13,7 @@ class BlackScholesOption:
     def __init__(self, spot_p: float, strk_P: float, exp_t: float, int_r: float, vol: float) -> None:
         self.spot_p = spot_p  # Current price of the underlying asset
         self.strk_P = strk_P  # The strike price of the option
-        self.exp_t = exp_t  # Time to expiration in years (can be in fraction)
+        self.exp_t = exp_t/365  # Time to expiration in years (can be in fraction)
         self.int_r = int_r  # The risk-free rate
         self.vol = vol  # The volatility of the underlying asset
 

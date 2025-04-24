@@ -18,8 +18,7 @@ class OptionsPricer:
         num_sims: int = 1000,
         days: int = 30,
         h: float = 1.0,
-        ci: float = 0.95,
-        antithetic: bool = False,
+        ci: float = 0.95
     ) -> None:
         """
         Initialize model
@@ -27,7 +26,7 @@ class OptionsPricer:
         Args:
             S (float): Underlying asset price
             K (float): Option strike price
-            T (float): Time to expiration in years. Can be provided as days/year, ie.: 180/365
+            T (float): Time to expiration in days
             r (float): Risk-free interest rate
             sigma (float): Volatility of the underlying asset
             num_sims (int): number of Monte Carlo simulations to run, defaults to 1000
@@ -42,7 +41,7 @@ class OptionsPricer:
         self.sigma = sigma
         self.black_scholes = bs.BlackScholesOption(self.S, self.K, self.T, self.r, self.sigma)
         self.monte_carlo = mc.MonteCarloModel(
-            self.S, self.K, self.T, self.r, self.sigma, num_sims, days, h, ci, antithetic
+            self.S, self.K, self.T, self.r, self.sigma, num_sims, h, ci
         )
 
     def price_options(self) -> None:
@@ -70,7 +69,7 @@ class OptionsPricer:
         print("-" * 50)
         print(f"Call Option Price: {round(call_price, 2)} (+/- {round(mc_model.ci_intervals['call'], 4)})")
         print(f" Put Option Price: {round(put_price, 2)}  (+/- {round(mc_model.ci_intervals['put'], 4)})")
-        print(f"       Delta call: {round(delta_call, 4)}  (+/- {round(mc_model.ci_intervals['delta'], 4)})")
-        print(f"        Delta put: {round(delta_put, 4)}  (+/- {round(mc_model.ci_intervals['delta'], 4)})")
-        print(f"            Gamma: {round(gamma, 4)}  (+/- {round(mc_model.ci_intervals['gamma'], 4)})")
+        print(f"       Delta call: {round(delta_call, 4)} ")
+        print(f"        Delta put: {round(delta_put, 4)}  ")
+        print(f"            Gamma: {round(gamma, 4)}  ")
         print("-" * 50)
