@@ -5,7 +5,7 @@
 The project contains the following files:
 
 - `monte_carlo.py`  
-  Implements the Monte Carlo simulation logic. This is the core of our project, it also includes variance reduction and CI analysis.
+  Implements the Monte Carlo simulation logic. This is the core of the project, it also includes variance reduction and CI analysis.
 
 - `black_scholes.py`  
   Implements the Black-Scholes formulas for pricing European call and put options. Uses as a benchmark for the simulation models.
