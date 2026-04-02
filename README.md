@@ -15,3 +15,6 @@ The project contains the following files:
 
 - `demo.ipynb`  
   A Jupyter Notebook demonstrating how to use the simulation. It benchmarks the results against the Black-Scholes model and fetches market data using the **yfinance** API.
+
+
+<img width="800" height="588" alt="image" src="https://github.com/user-attachments/assets/18f60ac7-d6dc-493d-8a19-62022e9ca5db" />
